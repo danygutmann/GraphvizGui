@@ -1,0 +1,8 @@
+digraph Dependencies {
+  rankdir=BT;
+  Application -> API;
+  API -> Renderer;
+  API -> Storage;
+  Renderer -> Graphviz;
+  Storage -> Volume;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Network component",
+  "description": "Represent a network or subnet.",
+  "category": "Infrastructure",
+  "parameters": [{"name": "id", "default": "network", "description": "Unique node identifier."}, {"name": "label", "default": "network", "description": "Network label."}],
+  "dot": "{id} [shape=component, style=filled, fillcolor=lightblue, label=\"{label}\"];"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "graphviz-gui-assets",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/build-assets.mjs"
+  },
+  "dependencies": {
+    "@codemirror/commands": "6.8.1",
+    "@codemirror/language": "6.10.8",
+    "@codemirror/state": "6.5.2",
+    "@codemirror/view": "6.36.5",
+    "@lezer/highlight": "1.2.1",
+    "swagger-ui-dist": "5.18.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.1"
+  }
+}

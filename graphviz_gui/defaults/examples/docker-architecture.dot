@@ -1,0 +1,6 @@
+digraph Docker {
+  rankdir=LR;
+  subgraph cluster_frontend { label="frontend network"; proxy [label="reverse proxy\ncontainer"]; web [label="web\ncontainer"]; }
+  subgraph cluster_backend { label="backend network"; api [label="API\ncontainer"]; database [label="database\ncontainer"]; }
+  proxy -> web -> api -> database;
+}

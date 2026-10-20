@@ -1,0 +1,9 @@
+digraph Decision {
+  Start [shape=oval];
+  Ready [shape=diamond, label="Ready?"];
+  Run [label="Run"];
+  Wait [label="Wait"];
+  Start -> Ready;
+  Ready -> Run [label="yes"];
+  Ready -> Wait [label="no"];
+}

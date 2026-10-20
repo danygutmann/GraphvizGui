@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graphviz Designer API</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/swagger-ui.css') }}">
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <script src="{{ url_for('static', filename='vendor/swagger-ui-bundle.js') }}"></script>
+  <script>
+    window.onload = () => SwaggerUIBundle({ url: "/api/v1/openapi.json", dom_id: "#swagger-ui", deepLinking: true });
+  </script>
+</body>
+</html>

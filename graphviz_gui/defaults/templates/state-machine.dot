@@ -1,0 +1,9 @@
+digraph StateMachine {
+  rankdir=LR;
+  node [shape=circle];
+  Idle -> Running [label="start"];
+  Running -> Paused [label="pause"];
+  Paused -> Running [label="resume"];
+  Running -> Complete [label="finish"];
+  Complete [shape=doublecircle];
+}

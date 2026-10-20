@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+coverage/
+graphviz_gui/static/editor.js
+graphviz_gui/static/vendor/
