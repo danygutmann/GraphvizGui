@@ -7,11 +7,8 @@ api = Blueprint("api", __name__)
 MIME_TYPES = {"svg": "image/svg+xml", "png": "image/png", "pdf": "application/pdf"}
 
 
-def _error(code, message, status, diagnostics=None):
-    error = {"code": code, "message": message}
-    if diagnostics:
-        error["diagnostics"] = diagnostics
-    return jsonify(error=error), status
+def _error(code, message, status):
+    return jsonify(error={"code": code, "message": message}), status
 
 
 @api.before_request
@@ -47,7 +44,7 @@ def render_graph():
         )
     except RenderError as exc:
         status = 503 if exc.code == "RENDER_BUSY" else 400
-        return _error(exc.code, exc.message, status, exc.diagnostics)
+        return _error(exc.code, exc.message, status)
     response = Response(data, content_type=MIME_TYPES[payload.get("format", "svg")])
     response.headers["Content-Disposition"] = "inline"
     response.headers["X-Content-Type-Options"] = "nosniff"
@@ -66,7 +63,7 @@ def validate_graph():
             payload["dot"], payload.get("engine", "dot")
         )
     except RenderError as exc:
-        return _error(exc.code, exc.message, 400, exc.diagnostics)
+        return _error(exc.code, exc.message, 400)
     return jsonify(valid=valid, diagnostics=diagnostics), (200 if valid else 422)
 
 
@@ -178,7 +175,6 @@ OPENAPI = {
                 "type": "object",
                 "properties": {"error": {"type": "object", "properties": {
                     "code": {"type": "string"}, "message": {"type": "string"},
-                    "diagnostics": {"type": "string"},
                 }, "required": ["code", "message"]}},
                 "required": ["error"],
             },

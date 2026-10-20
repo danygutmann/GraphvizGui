@@ -55,6 +55,11 @@ class AppTests(unittest.TestCase):
         self.assertFalse(response.get_json()["valid"])
         self.assertIn("diagnostics", response.get_json())
 
+    def test_render_error_does_not_expose_process_output(self):
+        response = self.client.post("/api/v1/render", json={"dot": "digraph {"})
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(set(response.get_json()["error"]), {"code", "message"})
+
     @unittest.skipUnless(shutil.which("dot"), "Graphviz is not installed")
     def test_real_svg_and_png_rendering(self):
         for output_format, content_type in (("svg", "image/svg+xml"), ("png", "image/png")):

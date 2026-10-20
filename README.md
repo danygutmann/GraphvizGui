@@ -80,7 +80,7 @@ curl -H 'Content-Type: application/json' \
 Formats and engines are allowlisted and reported from the installed Graphviz tools. Render errors return JSON such as:
 
 ```json
-{"error":{"code":"INVALID_DOT","message":"The DOT source could not be rendered.","diagnostics":"..."}}
+{"error":{"code":"INVALID_DOT","message":"The DOT source could not be rendered."}}
 ```
 
 Common statuses: `200` success, `201` project created, `400` malformed request/unsupported option, `401` authentication failure, `409` project already exists, `413` body too large, `415` non-JSON request, `422` invalid DOT, and `503` render concurrency limit or unavailable Graphviz. A validation response with invalid DOT has `valid: false`, diagnostics, and status `422`. The full request/response schemas are exposed at `/api/v1/openapi.json`; interactive API documentation is at `/api/docs`.

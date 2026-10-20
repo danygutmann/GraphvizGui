@@ -9,11 +9,10 @@ FORMATS = ("svg", "png", "pdf")
 
 
 class RenderError(Exception):
-    def __init__(self, code, message, diagnostics=None):
+    def __init__(self, code, message):
         super().__init__(message)
         self.code = code
         self.message = message
-        self.diagnostics = diagnostics
 
 
 class GraphvizRenderer:
@@ -86,10 +85,8 @@ class GraphvizRenderer:
     def render(self, dot, engine="dot", output_format="svg"):
         result = self._run(dot, engine, output_format)
         if result.returncode:
-            diagnostics = result.stderr.decode("utf-8", errors="replace").strip()
             raise RenderError(
                 "INVALID_DOT",
                 "The DOT source could not be rendered.",
-                diagnostics or "Graphviz rejected the DOT source.",
             )
         return result.stdout
