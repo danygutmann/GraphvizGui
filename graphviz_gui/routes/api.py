@@ -116,8 +116,8 @@ def list_projects():
 def project(name):
     try:
         dot = current_app.extensions["data_store"].read_project(name)
-    except ValueError as exc:
-        return _error("INVALID_NAME", str(exc), 400)
+    except ValueError:
+        return _error("INVALID_NAME", "The project name is invalid.", 400)
     except FileNotFoundError:
         return _error("NOT_FOUND", "The requested project was not found.", 404)
     return jsonify(name=name, dot=dot)
@@ -150,8 +150,8 @@ def save_project(name=None):
         )
     except FileExistsError:
         return _error("PROJECT_EXISTS", "The project already exists; set overwrite=true to replace it.", 409)
-    except ValueError as exc:
-        return _error("INVALID_PROJECT", str(exc), 400)
+    except ValueError:
+        return _error("INVALID_PROJECT", "The project name or contents are invalid.", 400)
     return jsonify(name=saved_name), 200 if request.method == "PUT" else 201
 
 
