@@ -1,0 +1,7 @@
+{
+  "name": "Undirected connection",
+  "description": "Connect two nodes without an arrow.",
+  "category": "Connections",
+  "parameters": [{"name": "from", "default": "A", "description": "First node."}, {"name": "to", "default": "B", "description": "Second node."}],
+  "dot": "{from} -- {to};"
+}

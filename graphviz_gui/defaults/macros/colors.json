@@ -1,0 +1,7 @@
+{
+  "name": "Colors and styles",
+  "description": "Set a consistent default color palette and node style.",
+  "category": "Styles",
+  "parameters": [],
+  "dot": "graph [bgcolor=\"white\", fontname=\"Arial\"];\nnode [style=filled, fillcolor=\"#e8f0fe\", color=\"#4a6fa5\", fontname=\"Arial\"];\nedge [color=\"#52677d\", fontname=\"Arial\"];"
+}

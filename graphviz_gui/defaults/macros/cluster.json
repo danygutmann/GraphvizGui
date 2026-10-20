@@ -1,0 +1,7 @@
+{
+  "name": "Group / cluster",
+  "description": "Create a labeled Graphviz cluster.",
+  "category": "Structure",
+  "parameters": [{"name": "name", "default": "group", "description": "Cluster name."}, {"name": "label", "default": "Group", "description": "Cluster label."}],
+  "dot": "subgraph cluster_{name} {\n  label=\"{label}\";\n  // Add nodes here\n}"
+}

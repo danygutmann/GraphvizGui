@@ -1,0 +1,8 @@
+digraph Flowchart {
+  rankdir=TB;
+  Start [shape=oval];
+  Input [label="Receive request"];
+  Process [label="Process data"];
+  End [shape=oval];
+  Start -> Input -> Process -> End;
+}

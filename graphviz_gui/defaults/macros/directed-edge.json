@@ -1,0 +1,7 @@
+{
+  "name": "Directed connection",
+  "description": "Connect two nodes with an arrow.",
+  "category": "Connections",
+  "parameters": [{"name": "from", "default": "A", "description": "Source node."}, {"name": "to", "default": "B", "description": "Destination node."}],
+  "dot": "{from} -> {to};"
+}

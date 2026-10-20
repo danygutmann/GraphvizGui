@@ -1,0 +1,7 @@
+{
+  "name": "Decision",
+  "description": "Add a diamond decision node.",
+  "category": "Flowcharts",
+  "parameters": [{"name": "id", "default": "Decision", "description": "Unique node identifier."}, {"name": "label", "default": "Condition?", "description": "Visible decision question."}],
+  "dot": "{id} [shape=diamond, label=\"{label}\"];"
+}

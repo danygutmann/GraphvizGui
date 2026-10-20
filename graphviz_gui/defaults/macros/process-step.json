@@ -1,0 +1,7 @@
+{
+  "name": "Process step",
+  "description": "Add a process box.",
+  "category": "Flowcharts",
+  "parameters": [{"name": "id", "default": "Process", "description": "Unique node identifier."}, {"name": "label", "default": "Process step", "description": "Visible text."}],
+  "dot": "{id} [shape=box, label=\"{label}\"];"
+}

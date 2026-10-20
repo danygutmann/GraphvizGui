@@ -1,0 +1,7 @@
+{
+  "name": "Legend",
+  "description": "Add a compact legend table.",
+  "category": "Structure",
+  "parameters": [{"name": "title", "default": "Legend", "description": "Legend heading."}],
+  "dot": "legend [shape=note, label=\"{title}\\n■ Service   ◆ Decision\"];"
+}

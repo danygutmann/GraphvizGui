@@ -1,0 +1,7 @@
+{
+  "name": "Standard node",
+  "description": "Add a node with a default shape.",
+  "category": "Nodes",
+  "parameters": [{"name": "id", "default": "NewNode", "description": "Unique DOT node identifier."}],
+  "dot": "{id} [shape=box];"
+}

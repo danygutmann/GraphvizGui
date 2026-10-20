@@ -1,0 +1,11 @@
+digraph System {
+  rankdir=LR;
+  subgraph cluster_clients { label="Clients"; browser; mobile; }
+  subgraph cluster_services { label="Services"; gateway; api; worker; }
+  subgraph cluster_data { label="Data"; cache; store; }
+  browser -> gateway;
+  mobile -> gateway;
+  gateway -> api -> store;
+  api -> cache;
+  worker -> store;
+}

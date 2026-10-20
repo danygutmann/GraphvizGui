@@ -1,0 +1,7 @@
+{
+  "name": "Docker container",
+  "description": "Represent a service container.",
+  "category": "Infrastructure",
+  "parameters": [{"name": "id", "default": "container", "description": "Unique node identifier."}, {"name": "label", "default": "service", "description": "Service name."}],
+  "dot": "{id} [shape=component, label=\"{label}\\ncontainer\"];"
+}

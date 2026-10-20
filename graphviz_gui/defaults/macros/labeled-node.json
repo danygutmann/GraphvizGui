@@ -1,0 +1,7 @@
+{
+  "name": "Node with label",
+  "description": "Add a node with a readable label.",
+  "category": "Nodes",
+  "parameters": [{"name": "id", "default": "Node", "description": "Unique DOT node identifier."}, {"name": "label", "default": "Node label", "description": "Text shown in the diagram."}],
+  "dot": "{id} [label=\"{label}\"];"
+}

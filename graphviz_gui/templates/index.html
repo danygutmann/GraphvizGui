@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graphviz Designer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+  <script src="{{ url_for('static', filename='editor.js') }}" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><a class="brand" href="/">Graphviz Designer</a><span class="subtitle">DOT editor and renderer</span></div>
+    <nav><a href="/api/docs">API documentation</a></nav>
+  </header>
+  <main>
+    <section class="toolbar" aria-label="Editor actions">
+      <label>Example / template <select id="library"><option value="">Choose…</option></select></label>
+      <label>Layout <select id="engine"><option>dot</option></select></label>
+      <label>Format <select id="format"><option>svg</option></select></label>
+      <button id="render" class="primary">Render</button>
+      <button id="save">Save project</button>
+      <button id="load">Load project</button>
+      <button id="export-dot">Export DOT</button>
+      <label class="token">API token <input id="api-token" type="password" autocomplete="off" placeholder="Optional"></label>
+    </section>
+    <p id="status" class="status" role="status" aria-live="polite">Ready. Enter DOT code or choose an example.</p>
+    <section class="workspace">
+      <section class="panel editor-panel">
+        <div class="panel-heading"><h2>DOT source</h2><span>Tab indents · Ctrl/Cmd-Z undo</span></div>
+        <div id="editor" aria-label="DOT source editor"></div>
+      </section>
+      <aside class="panel macro-panel">
+        <div class="panel-heading"><h2>Macro library</h2></div>
+        <p class="help">Insert at the cursor inside the graph body. The fragment is added without replacing existing content.</p>
+        <div id="macros"></div>
+      </aside>
+      <section class="panel preview-panel">
+        <div class="panel-heading"><h2>Preview</h2><label class="zoom-label">Zoom <input id="zoom" type="range" min="50" max="200" value="100"></label><a id="download" hidden>Download render</a></div>
+        <div class="preview-scroll"><img id="preview" alt="Rendered Graphviz diagram" hidden><p id="preview-placeholder">Your rendered diagram will appear here.</p></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
